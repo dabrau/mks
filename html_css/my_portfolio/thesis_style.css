@@ -1,0 +1,24 @@
+p {
+	font-family: 'open sans';
+}
+
+h1 {
+	font-family: 'crafty girls';
+	text-transform: uppercase;
+}
+
+h2 {
+	font-family: 'indie flower';
+}
+
+p.author {
+	font-family: 'Condiment';
+}
+
+a {
+	font-size: 10px;
+}
+
+a:hover {
+	color:red;
+}
