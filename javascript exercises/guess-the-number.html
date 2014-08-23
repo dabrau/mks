@@ -1,0 +1,55 @@
+<html>
+<head>
+  <title>Guess the Number!</title>
+</head>
+<body>
+  <label>distance from landmine:</label>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+  // alert('Hello World!');
+  var secretNumber = parseInt(Math.random() * 100, 10) + 1;
+  var landmine = parseInt(Math.random() * 100, 10) + 1;
+  // alert(landmine);
+  // alert(secretNumber);
+  var number = parseInt(prompt('gimme a number between 1 and 100'));
+  
+  var updateLandmineDistance = function() { 
+    $('label').text('distance from landmine:' + (number - landmine))
+  };
+
+  updateLandmineDistance();
+
+  // var checkNumber = function() {
+  // 	if(number > secretNumber) {
+  // 		  number = prompt('gimme a lower number');
+  // 		  return checkNumber();
+  // 	} else if(number < secretNumber) {
+  // 		  number = prompt('gimme a higher number');
+  // 		  return checkNumber();
+  // 	} else {
+  //       alert('congratulations');
+  //   }
+  // };
+
+    var checkNumber = function() {
+      if(number === landmine) {
+        alert('You lose!');
+      } else if (number === secretNumber) {
+        alert('Congratulations');
+      } else if (number > secretNumber) {
+        number = parseInt(prompt('gimme a lower number'));
+        updateLandmineDistance();
+        return checkNumber();
+      } else if(number < secretNumber) {
+        number = parseInt(prompt('gimme a higher number'));
+        updateLandmineDistance();
+        return checkNumber();
+      }
+    };
+
+
+  checkNumber();
+</script>
+
+</body>
+</html>
